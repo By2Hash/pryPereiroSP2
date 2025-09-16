@@ -290,7 +290,7 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(425, 417);
+            btnAceptar.Location = new Point(425, 419);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(75, 23);
             btnAceptar.TabIndex = 8;
