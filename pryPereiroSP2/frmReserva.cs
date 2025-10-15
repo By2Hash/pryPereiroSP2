@@ -118,6 +118,8 @@ namespace pryPereiroSP2
 
         }
 
+        string[,] matReserva = new string[3,2];
+        int indiceFila = 0;
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             float PrecioBase;
@@ -125,6 +127,13 @@ namespace pryPereiroSP2
             float Recargo;
             int Dias;
             float Total;
+
+            matReserva[indiceFila,0] = cmbTipo.Text;
+            matReserva[indiceFila,1] = cmbPersonas.Text;
+            matReserva[indiceFila,2] = txtDias.Text;
+            indiceFila++;
+
+            CargarDatos();
 
             // obtener la cantidad de dìas ingresados            
             Dias = int.Parse(txtDias.Text);
@@ -211,6 +220,11 @@ namespace pryPereiroSP2
         private void cmbTarjetas_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void CargarDatos()
+        {
+
         }
     }
 }
