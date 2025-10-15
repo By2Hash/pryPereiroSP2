@@ -54,10 +54,15 @@
             lblPago = new Label();
             label3 = new Label();
             btnAceptar = new Button();
+            dataGridView1 = new DataGridView();
+            colTipo = new DataGridViewTextBoxColumn();
+            colCantidad = new DataGridViewTextBoxColumn();
+            colDias = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // lblTipoCabaña
@@ -322,11 +327,37 @@
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += btnAceptar_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { colTipo, colCantidad, colDias });
+            dataGridView1.Location = new Point(549, 28);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(344, 370);
+            dataGridView1.TabIndex = 9;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // colTipo
+            // 
+            colTipo.HeaderText = "Tipo";
+            colTipo.Name = "colTipo";
+            // 
+            // colCantidad
+            // 
+            colCantidad.HeaderText = "Personas";
+            colCantidad.Name = "colCantidad";
+            // 
+            // colDias
+            // 
+            colDias.HeaderText = "Dias";
+            colDias.Name = "colDias";
+            // 
             // frmReserva
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(532, 449);
+            ClientSize = new Size(921, 445);
+            Controls.Add(dataGridView1);
             Controls.Add(btnAceptar);
             Controls.Add(label3);
             Controls.Add(lblPago);
@@ -348,6 +379,7 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -381,5 +413,9 @@
         private MaskedTextBox mtbTelefono;
         private ComboBox cmbPersonas;
         private TextBox txtDias;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn colTipo;
+        private DataGridViewTextBoxColumn colCantidad;
+        private DataGridViewTextBoxColumn colDias;
     }
 }
