@@ -109,15 +109,18 @@
             // 
             // cmbPersonas
             // 
+            cmbPersonas.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPersonas.FormattingEnabled = true;
             cmbPersonas.Location = new Point(258, 26);
             cmbPersonas.Margin = new Padding(2);
             cmbPersonas.Name = "cmbPersonas";
             cmbPersonas.Size = new Size(56, 23);
             cmbPersonas.TabIndex = 7;
+            cmbPersonas.SelectedIndexChanged += cmbPersonas_SelectedIndexChanged;
             // 
             // cmbTipo
             // 
+            cmbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTipo.FormattingEnabled = true;
             cmbTipo.Location = new Point(57, 26);
             cmbTipo.Name = "cmbTipo";
@@ -201,6 +204,7 @@
             // 
             // cmbTarjetas
             // 
+            cmbTarjetas.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTarjetas.FormattingEnabled = true;
             cmbTarjetas.Location = new Point(58, 85);
             cmbTarjetas.Name = "cmbTarjetas";

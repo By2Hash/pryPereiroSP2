@@ -6,6 +6,7 @@ namespace pryPereiroSP2
         public frmReserva()
         {
             InitializeComponent();
+            txtDias.Enabled = false;
         }
         // constantes para los cálculos     
         private const float TIPOA = 20;
@@ -21,10 +22,10 @@ namespace pryPereiroSP2
         }
 
         private void frmReserva_Load(object sender, EventArgs e)
-            
+
         {
             CargarDatos();
-            for(int indiceGrilla = 0; indiceGrilla < matReserva.GetLength(0); indiceGrilla++)
+            for (int indiceGrilla = 0; indiceGrilla < matReserva.GetLength(0); indiceGrilla++)
             {
                 dataGridView1.Rows.Add(matReserva[indiceGrilla, 0],
                 matReserva[indiceGrilla, 1],
@@ -76,7 +77,10 @@ namespace pryPereiroSP2
 
         private void optTrajeta_CheckedChanged(object sender, EventArgs e)
         {
-
+            if(optTrajeta.Checked == true)
+            {
+                cmbTarjetas.Enabled = true;
+            }
 
         }
 
@@ -127,7 +131,7 @@ namespace pryPereiroSP2
 
         }
 
-        string[,] matReserva = new string[150,150];
+        string[,] matReserva = new string[150, 150];
         int indiceFila = 0;
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -188,11 +192,8 @@ namespace pryPereiroSP2
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            // condiciones para habilitar o no el botón "Aceptar"  
-            if (txtDias.Text != "" && txtDias.Text != "0" && txtNombre.Text != "" && mtbTelefono.Text != "")
-            { btnAceptar.Enabled = true; }
-            else
-            { btnAceptar.Enabled = false; }
+            ActivarBoton(); 
+            
 
 
 
@@ -205,24 +206,15 @@ namespace pryPereiroSP2
         private void mtbTelefono_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             // condiciones para habilitar o no el botón "Aceptar"       
-            if (txtDias.Text != "" && txtDias.Text != "0" && txtNombre.Text != "" && mtbTelefono.Text != "")
-            { btnAceptar.Enabled = true; }
-            else
-            {
-                btnAceptar.Enabled = false;
-            }
+           
+            ActivarBoton() ;
 
         }
 
         private void txtDias_TextChanged(object sender, EventArgs e)
         {
             // condiciones para habilitar o no el botón "Aceptar"    
-            if (txtDias.Text != "" && txtDias.Text != "0" && txtNombre.Text != "" && mtbTelefono.Text != "")
-            {
-                btnAceptar.Enabled = true;
-            }
-            else
-            { btnAceptar.Enabled = false; }
+            
 
         }
 
@@ -231,6 +223,15 @@ namespace pryPereiroSP2
 
         }
 
+        public void ActivarBoton()
+        {
+            if (txtNombre.Text != "" && mtbTelefono.Text != "")
+            { btnAceptar.Enabled = true; }
+            else
+            { btnAceptar.Enabled = false; }
+
+            
+        }
         private void CargarDatos()
         {
             matReserva[0, 0] = "Tipo A"; matReserva[0, 1] = "45"; matReserva[0, 2] = "12";
@@ -347,6 +348,11 @@ namespace pryPereiroSP2
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cmbPersonas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtDias.Enabled = true;
         }
     }
 }
