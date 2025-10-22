@@ -7,6 +7,7 @@ namespace pryPereiroSP2
         {
             InitializeComponent();
             txtDias.Enabled = false;
+            btnAceptar.Enabled = false;
         }
         // constantes para los cálculos     
         private const float TIPOA = 20;
@@ -38,7 +39,7 @@ namespace pryPereiroSP2
             cmbTipo.Items.Add("Tipo B");
             // esta acción provoca el disparo del evento "SelectedIndexChanged"            cmbTipo.SelectedIndex = 0;    
             // se inicializa la cantidad de días en 1      
-            txtDias.Text = "1";
+            txtDias.Text = "";
             // inicialzar los demás controles de la interfaz      
             chkCocina.Checked = false;
             chkHeladera.Checked = false;
@@ -77,7 +78,7 @@ namespace pryPereiroSP2
 
         private void optTrajeta_CheckedChanged(object sender, EventArgs e)
         {
-            if(optTrajeta.Checked == true)
+            if (optTrajeta.Checked == true)
             {
                 cmbTarjetas.Enabled = true;
             }
@@ -192,10 +193,7 @@ namespace pryPereiroSP2
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            ActivarBoton(); 
-            
-
-
+            ActivarBoton();
 
         }
 
@@ -203,15 +201,15 @@ namespace pryPereiroSP2
 
         private void mtbTelefono_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-                   
-           
-            ActivarBoton() ;
+
+
+            ActivarBoton();
 
         }
 
         private void txtDias_TextChanged(object sender, EventArgs e)
         {
-            ActivarBoton();
+
 
 
         }
@@ -223,9 +221,8 @@ namespace pryPereiroSP2
 
         public void ActivarBoton()
         {
-            btnAceptar.Enabled = true;
-
             
+
         }
         private void CargarDatos()
         {
@@ -348,6 +345,14 @@ namespace pryPereiroSP2
         private void cmbPersonas_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtDias.Enabled = true;
+        }
+
+        private void txtDias_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReserva));
             lblTipoCabaña = new Label();
             lblTipo = new Label();
             panel1 = new Panel();
@@ -106,6 +107,7 @@
             txtDias.Size = new Size(49, 23);
             txtDias.TabIndex = 8;
             txtDias.TextChanged += txtDias_TextChanged;
+            txtDias.KeyPress += txtDias_KeyPress;
             // 
             // cmbPersonas
             // 
@@ -372,6 +374,7 @@
             Controls.Add(lblTipoCabaña);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmReserva";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reservas de Cabañas";
