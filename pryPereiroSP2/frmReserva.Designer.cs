@@ -260,7 +260,7 @@
             // 
             // mtbTelefono
             // 
-            mtbTelefono.Location = new Point(79, 65);
+            mtbTelefono.Location = new Point(75, 66);
             mtbTelefono.Mask = "000-000-0000";
             mtbTelefono.Name = "mtbTelefono";
             mtbTelefono.Size = new Size(73, 23);
@@ -323,7 +323,7 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(425, 419);
+            btnAceptar.Location = new Point(445, 410);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(75, 23);
             btnAceptar.TabIndex = 8;
@@ -371,6 +371,7 @@
             Controls.Add(panel2);
             Controls.Add(lblTipoCabaña);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "frmReserva";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reservas de Cabañas";

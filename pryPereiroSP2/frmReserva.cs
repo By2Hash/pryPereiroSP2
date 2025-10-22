@@ -197,15 +197,13 @@ namespace pryPereiroSP2
 
 
 
-
-
         }
 
 
 
         private void mtbTelefono_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            // condiciones para habilitar o no el botón "Aceptar"       
+                   
            
             ActivarBoton() ;
 
@@ -213,8 +211,8 @@ namespace pryPereiroSP2
 
         private void txtDias_TextChanged(object sender, EventArgs e)
         {
-            // condiciones para habilitar o no el botón "Aceptar"    
-            
+            ActivarBoton();
+
 
         }
 
@@ -225,10 +223,7 @@ namespace pryPereiroSP2
 
         public void ActivarBoton()
         {
-            if (txtNombre.Text != "" && mtbTelefono.Text != "")
-            { btnAceptar.Enabled = true; }
-            else
-            { btnAceptar.Enabled = false; }
+            btnAceptar.Enabled = true;
 
             
         }
